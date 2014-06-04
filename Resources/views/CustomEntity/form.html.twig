@@ -1,6 +1,7 @@
 {% extends baseTemplate %}
 
-{% oro_title_set({ params: { ('%' ~ customEntityName ~ '.label%'): form.vars.value ~ "" } }) %}
+{% set title = (customEntityName ~ '.edit')|trans ~ ' - ' ~ form.vars.value %}
+{% oro_title_set({params: {'%title%': title}}) %}
 
 {% block content %}
     {{ JSFV(form) }}
@@ -13,7 +14,6 @@
     }) }}
 
         {% block custom_entity_page_header %}
-            {% set title = (customEntityName ~ '.edit')|trans ~ ' - ' ~ form.vars.value %}
             {% set indexUrl = path(indexRoute, { customEntityName: customEntityName }) %}
             {% set buttons %}
                 {{ elements.backLink(indexUrl) }}
