@@ -4,7 +4,7 @@ parameters:
 services:
     pim_custom_entity.datasource.custom_entity:
         class: %pim_custom_entity.datasource.custom_entity%
-        parent: pim_catalog.datasource.orm
+        parent: pim_catalog.datasource.default
         arguments:
             - '@pim_catalog.helper.locale'
         tags:
