@@ -8,7 +8,7 @@ use Oro\Bundle\SecurityBundle\ORM\Walker\AclHelper;
 use Pim\Bundle\CatalogBundle\Helper\LocaleHelper;
 use Pim\Bundle\CustomEntityBundle\Entity\Repository\DatagridAwareRepositoryInterface;
 use Pim\Bundle\CustomEntityBundle\Entity\Repository\LocaleAwareRepositoryInterface;
-use Pim\Bundle\DataGridBundle\Datasource\Orm\OrmDatasource;
+use Pim\Bundle\DataGridBundle\Datasource\Datasource;
 use Pim\Bundle\DataGridBundle\Datasource\ResultRecord\HydratorInterface;
 
 /**
@@ -18,7 +18,7 @@ use Pim\Bundle\DataGridBundle\Datasource\ResultRecord\HydratorInterface;
  * @copyright 2013 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class CustomEntityDatasource extends OrmDatasource
+class CustomEntityDatasource extends Datasource
 {
     /**
      * @var string
@@ -40,11 +40,12 @@ class CustomEntityDatasource extends OrmDatasource
      */
     public function __construct(
         EntityManager $em,
-        AclHelper $aclHelper,
         HydratorInterface $hydrator,
-        LocaleHelper $localeHelper
+        MassActionRepositoryInterface $massActionRepository = null,
+        LocaleHelper $localeHelper = null
     ) {
-        parent::__construct($em, $aclHelper, $hydrator);
+        parent::__construct($em, $hydrator, $massActionRepository);
+
         $this->localeHelper = $localeHelper;
     }
 
