@@ -2,9 +2,8 @@
 
 namespace Pim\Bundle\CustomEntityBundle\Datasource\Orm;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Persistence\ObjectManager;
 use Oro\Bundle\DataGridBundle\Datagrid\DatagridInterface;
-use Oro\Bundle\SecurityBundle\ORM\Walker\AclHelper;
 use Pim\Bundle\CatalogBundle\Helper\LocaleHelper;
 use Pim\Bundle\CustomEntityBundle\Entity\Repository\DatagridAwareRepositoryInterface;
 use Pim\Bundle\CustomEntityBundle\Entity\Repository\LocaleAwareRepositoryInterface;
@@ -33,16 +32,16 @@ class CustomEntityDatasource extends Datasource
     /**
      * Constructor
      *
-     * @param EntityManager     $em
+     * @param ObjectManager     $om
      * @param HydratorInterface $hydrator
      * @param LocaleHelper      $localeHelper
      */
     public function __construct(
-        EntityManager $em,
+        ObjectManager $om,
         HydratorInterface $hydrator,
         LocaleHelper $localeHelper = null
     ) {
-        parent::__construct($em, $hydrator);
+        parent::__construct($om, $hydrator);
 
         $this->localeHelper = $localeHelper;
     }
