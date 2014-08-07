@@ -52,15 +52,19 @@ class CustomEntityDatasource extends Datasource
      */
     public function process(DatagridInterface $grid, array $config)
     {
-        $repository = $this->em->getRepository($config['entity']);
+        $this->configuration = $config;
+
+        $repository = $this->getRepository();
+
+        if (!isset($config['repository_method']) && $repository instanceof DatagridAwareRepositoryInterface) {
+            $config['repository_method'] = 'createDatagridQueryBuilder';
+        }
+
+        parent::process($grid, $config);
 
         if ($repository instanceof LocaleAwareRepositoryInterface) {
             $repository->setLocale($this->localeHelper->getCurrentLocale()->getCode());
         }
 
-        if (!isset($config['repository_method']) && $repository instanceof DatagridAwareRepositoryInterface) {
-            $config['repository_method'] = 'createDatagridQueryBuilder';
-        }
-        parent::process($grid, $config);
     }
 }
