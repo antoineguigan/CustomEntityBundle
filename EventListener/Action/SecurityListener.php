@@ -20,7 +20,6 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
  */
 class SecurityListener implements EventSubscriberInterface
 {
-
     /**
      * @var ActionFactory
      */
@@ -77,10 +76,10 @@ class SecurityListener implements EventSubscriberInterface
         };
         if ('index' === $event->getAction()->getType()) {
             $resolver->setNormalizers(
-                    [
-                        'row_actions' => $normalizeActions,
-                        'mass_actions' => $normalizeActions
-                    ]
+                [
+                    'row_actions' => $normalizeActions,
+                    'mass_actions' => $normalizeActions
+                ]
             );
         }
     }
@@ -103,7 +102,7 @@ class SecurityListener implements EventSubscriberInterface
 
     /**
      * Removes the create link if no ACLS
-     * 
+     *
      * @param PreRenderActionEvent $event
      * @return type
      */

@@ -3,7 +3,7 @@
 namespace Pim\Bundle\CustomEntityBundle\Entity;
 
 /**
- * Abstract tranlatable custom option
+ * Abstract translatable custom option
  *
  * @author    Antoine Guigan <antoine@akeneo.com>
  * @copyright 2013 Akeneo SAS (http://www.akeneo.com)

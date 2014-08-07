@@ -37,6 +37,7 @@ class ConfigureCustomEntityGridListener
      *
      * @param BuildBefore $event
      *
+     * @return null
      * @throws \Exception
      */
     public function buildBefore(BuildBefore $event)

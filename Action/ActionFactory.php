@@ -15,7 +15,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ActionFactory
 {
     /**
-     *
      * @var ContainerInterface
      */
     protected $container;

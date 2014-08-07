@@ -28,9 +28,9 @@ class CustomOptionMultiSelectType extends OptionMultiSelectType
     /**
      * Constructor
      *
-     * @param ConstraintGuesserInterface $constraintGuesser
      * @param string                     $formType
      * @param string                     $name
+     * @param ConstraintGuesserInterface $constraintGuesser
      * @param string                     $backendType
      * @param string                     $optionClass
      */
