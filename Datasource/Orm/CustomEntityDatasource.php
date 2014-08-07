@@ -34,17 +34,15 @@ class CustomEntityDatasource extends Datasource
      * Constructor
      *
      * @param EntityManager     $em
-     * @param AclHelper         $aclHelper
      * @param HydratorInterface $hydrator
      * @param LocaleHelper      $localeHelper
      */
     public function __construct(
         EntityManager $em,
         HydratorInterface $hydrator,
-        MassActionRepositoryInterface $massActionRepository = null,
         LocaleHelper $localeHelper = null
     ) {
-        parent::__construct($em, $hydrator, $massActionRepository);
+        parent::__construct($em, $hydrator);
 
         $this->localeHelper = $localeHelper;
     }
