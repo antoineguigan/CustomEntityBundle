@@ -1,5 +1,5 @@
 parameters:
-    pim_custom_entity.datasource.custom_entity: Pim\Bundle\CustomEntityBundle\Datasource\Orm\CustomEntityDatasource
+    pim_custom_entity.datasource.custom_entity: Pim\Bundle\CustomEntityBundle\Datasource\CustomEntityDatasource
 
 services:
     pim_custom_entity.datasource.custom_entity:
