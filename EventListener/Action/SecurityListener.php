@@ -64,14 +64,15 @@ class SecurityListener implements EventSubscriberInterface
         $resolver = $event->getOptionsResolver();
         $resolver->setOptional(['acl']);
         $customEntityName = $event->getAction()->getConfiguration()->getName();
-        $normalizeActions = function($options, $actionTypes) use ($customEntityName) {
+        $normalizeActions = function ($options, $actionTypes) use ($customEntityName) {
             return array_filter(
-                    $actionTypes, function ($actionType) use ($customEntityName) {
-                $action = $this->actionFactory->getAction($customEntityName, $actionType);
-                $options = $action->getOptions();
+                $actionTypes,
+                function ($actionType) use ($customEntityName) {
+                    $action = $this->actionFactory->getAction($customEntityName, $actionType);
+                    $options = $action->getOptions();
 
-                return (!isset($options['acl']) || $this->securityFacade->isGranted($options['acl']));
-            }
+                    return (!isset($options['acl']) || $this->securityFacade->isGranted($options['acl']));
+                }
             );
         };
         if ('index' === $event->getAction()->getType()) {
@@ -127,5 +128,4 @@ class SecurityListener implements EventSubscriberInterface
             $event->setTemplateVars($vars);
         }
     }
-
 }

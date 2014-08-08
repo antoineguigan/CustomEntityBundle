@@ -42,8 +42,11 @@ class DataGridQueryGenerator
      * @param RequestParameters          $requestParams
      * @param MassActionParametersParser $parametersParser
      */
-    public function __construct(Manager $manager, RequestParameters $requestParams, MassActionParametersParser $parametersParser)
-    {
+    public function __construct(
+        Manager $manager,
+        RequestParameters $requestParams,
+        MassActionParametersParser $parametersParser
+    ) {
         $this->manager = $manager;
         $this->requestParams = $requestParams;
         $this->parametersParser = $parametersParser;

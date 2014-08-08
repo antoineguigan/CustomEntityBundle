@@ -36,5 +36,7 @@ class FormActionBehavior extends ActionBehavior
 
 class Entity
 {
-    public function getId() { }
+    public function getId()
+    {
+    }
 }

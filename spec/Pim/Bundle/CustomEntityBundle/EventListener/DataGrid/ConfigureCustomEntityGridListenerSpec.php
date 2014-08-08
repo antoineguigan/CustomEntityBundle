@@ -75,12 +75,12 @@ class ConfigureCustomEntityGridListenerSpec extends ObjectBehavior
         $datagridConfig->offsetSetByPath("[source]", ["entity" => "entity_class", "type" => "pim_custom_entity"])
                 ->shouldBeCalled();
         $datagridConfig->offsetSetByPath(
-                "[actions]",
-                [
-                    "action2" => [],
-                    "action1" => ["action1_key1" => "action1_value1", "link" => "action1_link"]
-                ]
-            )->shouldBeCalled();
+            "[actions]",
+            [
+                "action2" => [],
+                "action1" => ["action1_key1" => "action1_value1", "link" => "action1_link"]
+            ]
+        )->shouldBeCalled();
         $datagridConfig->offsetSetByPath(
             "[properties]",
             [
@@ -117,13 +117,12 @@ class ConfigureCustomEntityGridListenerSpec extends ObjectBehavior
         $datagridConfig->offsetSetByPath("[actions]", [])->shouldBeCalled();
         $datagridConfig->offsetSetByPath("[properties]", ['id' => []])->shouldBeCalled();
         $datagridConfig->offsetSetByPath(
-                "[mass_actions]",
-                [
-                    "action2" => [],
-                    "action1" => ["action1_key1" => "action1_value1"]
-                ]
-            )->shouldBeCalled();
+            "[mass_actions]",
+            [
+                "action2" => [],
+                "action1" => ["action1_key1" => "action1_value1"]
+            ]
+        )->shouldBeCalled();
         $this->buildBefore($event);
     }
-
 }

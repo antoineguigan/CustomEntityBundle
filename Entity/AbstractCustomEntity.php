@@ -46,7 +46,7 @@ abstract class AbstractCustomEntity implements ReferableInterface
      */
     public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
 
     /**

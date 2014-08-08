@@ -98,7 +98,7 @@ abstract class AbstractFormAction extends AbstractViewableAction
      */
     protected function saveForm(Request $request, FormInterface $form)
     {
-       $this->manager->save($form->getData());
+        $this->manager->save($form->getData());
     }
 
     /**
