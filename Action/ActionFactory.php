@@ -22,7 +22,7 @@ class ActionFactory
     /**
      * @var Registry
      */
-    protected $configurationRegistry;
+    protected $configRegistry;
 
     /**
      * @var ActionInterface[][]
@@ -33,12 +33,12 @@ class ActionFactory
      * Constructor
      *
      * @param ContainerInterface $container
-     * @param Registry           $configurationRegistry
+     * @param Registry           $configRegistry
      */
-    public function __construct(ContainerInterface $container, Registry $configurationRegistry)
+    public function __construct(ContainerInterface $container, Registry $configRegistry)
     {
         $this->container = $container;
-        $this->configurationRegistry = $configurationRegistry;
+        $this->configRegistry = $configRegistry;
     }
 
     /**
@@ -55,11 +55,11 @@ class ActionFactory
             return $this->actions[$customEntityName][$actionType];
         }
 
-        if (!$this->configurationRegistry->has($customEntityName)) {
+        if (!$this->configRegistry->has($customEntityName)) {
             return null;
         }
 
-        $configuration = $this->configurationRegistry->get($customEntityName);
+        $configuration = $this->configRegistry->get($customEntityName);
 
         if (!$configuration->hasAction($actionType)) {
             return null;
